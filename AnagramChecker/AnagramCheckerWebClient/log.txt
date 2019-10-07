@@ -1,0 +1,34 @@
+2019-10-07 19:54:22.929 +02:00 [INF] Starting web host
+2019-10-07 19:54:40.779 +02:00 [INF] Starting web host
+2019-10-07 21:23:00.284 +02:00 [INF] Starting web host
+2019-10-07 21:27:37.962 +02:00 [INF] Starting web host
+2019-10-07 21:32:02.073 +02:00 [INF] Starting web host
+2019-10-07 21:32:11.465 +02:00 [INF] Now listening on: https://localhost:5001
+2019-10-07 21:32:11.497 +02:00 [INF] Now listening on: http://localhost:5000
+2019-10-07 21:32:11.510 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2019-10-07 21:32:11.517 +02:00 [INF] Hosting environment: Development
+2019-10-07 21:32:11.529 +02:00 [INF] Content root path: D:\Schule\HTL5\MC\04_AnagramChecker\AnagramChecker\AnagramCheckerWebClient
+2019-10-07 21:32:23.908 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/getKnownAnagrams?w=sient  
+2019-10-07 21:32:24.521 +02:00 [INF] Request finished in 647.1514000000001ms 307 
+2019-10-07 21:32:26.039 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/getKnownAnagrams?w=sient  
+2019-10-07 21:32:26.383 +02:00 [INF] Executing endpoint 'AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient)'
+2019-10-07 21:32:27.125 +02:00 [INF] Route matched with {action = "GetKnownAnagrams", controller = "AnagramChecker"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] GetKnownAnagrams(System.String) on controller AnagramChecker.Controllers.AnagramCheckerController (AnagramCheckerWebClient).
+2019-10-07 21:32:28.128 +02:00 [INF] Executing action method AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient) - Validation state: "Valid"
+2019-10-07 21:32:28.582 +02:00 [WRN] No anagrams found for sient. This must not nescessary mean that there are no anagrams, but none of them is included in our dictionary as anagram of the inputed word
+2019-10-07 21:32:28.618 +02:00 [INF] Executed action method AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 341.1231ms.
+2019-10-07 21:32:28.692 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2019-10-07 21:32:28.891 +02:00 [INF] Executed action AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient) in 1676.5169ms
+2019-10-07 21:32:28.930 +02:00 [INF] Executed endpoint 'AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient)'
+2019-10-07 21:32:28.958 +02:00 [INF] Request finished in 2914.8479ms 404 application/problem+json; charset=utf-8
+2019-10-07 21:32:45.549 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/getKnownAnagrams?w=silent  
+2019-10-07 21:32:45.615 +02:00 [INF] Request finished in 65.7362ms 307 
+2019-10-07 21:32:45.869 +02:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/getKnownAnagrams?w=silent  
+2019-10-07 21:32:45.934 +02:00 [INF] Executing endpoint 'AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient)'
+2019-10-07 21:32:46.147 +02:00 [INF] Route matched with {action = "GetKnownAnagrams", controller = "AnagramChecker"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.String]] GetKnownAnagrams(System.String) on controller AnagramChecker.Controllers.AnagramCheckerController (AnagramCheckerWebClient).
+2019-10-07 21:32:46.647 +02:00 [INF] Executing action method AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient) - Validation state: "Valid"
+2019-10-07 21:32:46.742 +02:00 [INF] Executed action method AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7.397600000000001ms.
+2019-10-07 21:32:46.875 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2019-10-07 21:32:46.919 +02:00 [INF] Executed action AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient) in 481.4728ms
+2019-10-07 21:32:46.982 +02:00 [INF] Executed endpoint 'AnagramChecker.Controllers.AnagramCheckerController.GetKnownAnagrams (AnagramCheckerWebClient)'
+2019-10-07 21:32:47.029 +02:00 [INF] Request finished in 1148.4654ms 200 application/json; charset=utf-8
+2019-10-07 21:32:51.206 +02:00 [INF] Application is shutting down...

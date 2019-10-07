@@ -1,0 +1,16 @@
+﻿tar = rat
+arc = car
+elbow = below
+state = taste
+cider = cried
+dusty = study
+night = thing
+inch = chin
+brag = grab
+cat = act
+bored = robed
+save = vase
+angel = glean
+stressed = desserts
+silent = listen
+silent = inlets

@@ -1,0 +1,24 @@
+﻿
+###
+GET http://localhost:5000/api/checkAnagram
+Content-Type: application/json
+
+{
+    "w1": "listen",
+    "w2": "silent"
+}
+
+###
+GET http://localhost:5000/api/checkAnagram
+Content-Type: application/json
+
+{
+    "w1": "talk",
+    "w2": "jump"
+}
+
+###
+GET http://localhost:5000/api/getKnownAnagrams?w=silent
+
+###
+GET http://localhost:5000/api/getPermutations?w=abc

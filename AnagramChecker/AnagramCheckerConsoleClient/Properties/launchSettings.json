@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AnagramCheckerConsoleClient": {
+      "commandName": "Project",
+      "commandLineArgs": "permutation abc"
+    }
+  }
+}
