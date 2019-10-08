@@ -8,7 +8,7 @@ namespace AnagramChecker
 {
     public class AnagramChecker
     {
-        public static bool CheckWords(string word1, string word2)
+        public bool CheckWords(string word1, string word2)
         {
             // Change string to char
             char[] chars1 = word1.ToLower().ToCharArray();
@@ -29,7 +29,7 @@ namespace AnagramChecker
             return true;
         }
 
-        public static async Task<IEnumerable<string>> GetKnownAnagrams(string startWord)
+        public async Task<IEnumerable<string>> GetKnownAnagramsAsync(string startWord)
         {
             IEnumerable<WordPair> wordPair = await ListAnagramsFromDictionary();
 
@@ -37,13 +37,13 @@ namespace AnagramChecker
             List<string> newAnagrams = new List<string>();
             foreach (WordPair anagram in wordPair)
             {
-                if (anagram.word1 == startWord)
+                if (anagram.Word1 == startWord)
                 {
-                    newAnagrams.Add(anagram.word2);
+                    newAnagrams.Add(anagram.Word2);
                 }
-                if (anagram.word2 == startWord)
+                if (anagram.Word2 == startWord)
                 {
-                    newAnagrams.Add(anagram.word1);
+                    newAnagrams.Add(anagram.Word1);
                 }
             }
 
@@ -56,22 +56,22 @@ namespace AnagramChecker
                 {
                     foreach (WordPair anagram in wordPair)
                     {
-                        if (anagram.word1 == word)
+                        if (anagram.Word1 == word)
                         {
-                            if (!verifiedAnagrams.Exists(word => (word == anagram.word2)) &&
-                                !newAnagrams.Exists(word => (word == anagram.word2)) &&
-                                anagram.word2 != startWord)
+                            if (!verifiedAnagrams.Exists(word => (word == anagram.Word2)) &&
+                                !newAnagrams.Exists(word => (word == anagram.Word2)) &&
+                                anagram.Word2 != startWord)
                             {
-                                nextNewAnagrams.Add(anagram.word2);
+                                nextNewAnagrams.Add(anagram.Word2);
                             }
                         }
-                        if (anagram.word2 == word)
+                        if (anagram.Word2 == word)
                         {
-                            if (!verifiedAnagrams.Exists(word => (word == anagram.word1)) &&
-                                !newAnagrams.Exists(word => (word == anagram.word1)) &&
-                                anagram.word1 != startWord)
+                            if (!verifiedAnagrams.Exists(word => (word == anagram.Word1)) &&
+                                !newAnagrams.Exists(word => (word == anagram.Word1)) &&
+                                anagram.Word1 != startWord)
                             {
-                                nextNewAnagrams.Add(anagram.word1);
+                                nextNewAnagrams.Add(anagram.Word1);
                             }
                         }
                     }
@@ -83,14 +83,14 @@ namespace AnagramChecker
 
         }
 
-        public static async Task<IEnumerable<string>> GetPermutations(string wordToPermute)
+        public async Task<IEnumerable<string>> GetPermutationsAsync(string wordToPermute)
         {
-            return await Task.Run(() => GeneratePermutations(wordToPermute, 0));
+            return await Task.FromResult(GeneratePermutations(wordToPermute, 0));
         }
 
         private async static Task<IEnumerable<WordPair>> ListAnagramsFromDictionary()
         {
-            string dictionary = await System.IO.File.ReadAllTextAsync("Dictionary.txt");
+            string dictionary = await ReadDictionaryAsync();
             string[] anagramPairs = dictionary.Replace("\r", string.Empty).Split("\n");
             List<WordPair> wordPair = new List<WordPair>();
             foreach (string pair in anagramPairs)
@@ -102,6 +102,11 @@ namespace AnagramChecker
                 }
             }
             return wordPair;
+        }
+
+        private async static Task<string> ReadDictionaryAsync()
+        {
+            return await System.IO.File.ReadAllTextAsync("Dictionary.txt");
         }
 
         private static IEnumerable<string> GeneratePermutations(string currentWord, int startIndex)
@@ -126,11 +131,8 @@ namespace AnagramChecker
 
         public static string SwapChars(string toSwap, int i, int j)
         {
-            char temp;
             char[] characters = toSwap.ToCharArray();
-            temp = characters[i];
-            characters[i] = characters[j];
-            characters[j] = temp;
+            (characters[i], characters[j]) = (characters[j], characters[i]);
             string swappedWord = new string(characters);
             return swappedWord;
         }

@@ -37,7 +37,8 @@ namespace AnagramChecker
             }
             else
             {
-                if (AnagramChecker.CheckWords(args[1], args[2]))
+                AnagramChecker anagramChecker = new AnagramChecker();
+                if (anagramChecker.CheckWords(args[1], args[2]))
                 {
                     Console.WriteLine("\"{0}\" and \"{1}\" are anagrams", args[1], args[2]);
                 }
@@ -56,7 +57,8 @@ namespace AnagramChecker
             }
             else
             {
-                IEnumerable<string> anagrams = await AnagramChecker.GetKnownAnagrams(args[1]);
+                AnagramChecker anagramChecker = new AnagramChecker();
+                IEnumerable<string> anagrams = await anagramChecker.GetKnownAnagramsAsync(args[1]);
                 if (anagrams.Count() > 0)
                 {
                     foreach (string anagram in anagrams)
@@ -78,7 +80,8 @@ namespace AnagramChecker
             }
             else
             {
-                IEnumerable<string> anagrams = await AnagramChecker.GetPermutations(args[1]);
+                AnagramChecker anagramChecker = new AnagramChecker();
+                IEnumerable<string> anagrams = await anagramChecker.GetPermutationsAsync(args[1]);
                 foreach (string anagram in anagrams)
                 {
                     Console.WriteLine("{0}", anagram);

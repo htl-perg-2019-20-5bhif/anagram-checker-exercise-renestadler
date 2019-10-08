@@ -27,7 +27,8 @@ namespace AnagramChecker.Controllers
             {
                 return BadRequest();
             }
-            if (AnagramChecker.CheckWords(data.w1, data.w2))
+            AnagramChecker anagramChecker = new AnagramChecker();
+            if (anagramChecker.CheckWords(data.w1, data.w2))
             {
                 return Ok();
             }
@@ -39,13 +40,14 @@ namespace AnagramChecker.Controllers
 
         [HttpGet]
         [Route("/api/getKnownAnagrams")]
-        public async Task<ActionResult<string>> GetKnownAnagrams([FromQuery] string w)
+        public async Task<ActionResult<string>> GetKnownAnagramsAsync([FromQuery] string w)
         {
             if (w is null)
             {
                 return BadRequest();
             }
-            IEnumerable<string> anagrams = await AnagramChecker.GetKnownAnagrams(w);
+            AnagramChecker anagramChecker = new AnagramChecker();
+            IEnumerable<string> anagrams = await anagramChecker.GetKnownAnagramsAsync(w);
             if (anagrams.Count() == 0)
             {
                 _logger.LogWarning("No anagrams found for " + w +
@@ -60,13 +62,14 @@ namespace AnagramChecker.Controllers
 
         [HttpGet]
         [Route("/api/getPermutations")]
-        public async Task<ActionResult<string>> GetPermutations([FromQuery] string w)
+        public async Task<ActionResult<string>> GetPermutationsAsync([FromQuery] string w)
         {
             if (w is null)
             {
                 return BadRequest();
             }
-            IEnumerable<string> anagrams = await AnagramChecker.GetPermutations(w);
+            AnagramChecker anagramChecker = new AnagramChecker();
+            IEnumerable<string> anagrams = await anagramChecker.GetPermutationsAsync(w);
             if (anagrams.Count() == 0)
             {
                 return NotFound();
